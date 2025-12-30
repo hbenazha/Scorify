@@ -1,5 +1,24 @@
 <h1>Playlists#show</h1>
 
 <% @songs.each do |song| %>
-  Artist : <b><%= song.artist %> </b> Name : <b><%= song.name %></b> <br>
+  <div>
+  Artist : <b><%= song.artist %> </b> 
+  Name : <b><%= song.name %>
+  </div>
+
+  <% item = @playlist_items[song.id] || PLaylistItem.new(playlist: @playlist, song: @song) %>
+  <%= form_with model: [@playlist, item] do |f| %>
+    <%= f.hidden_field :song_id, value: song.id %>
+    <div>
+      <%= f.label :rating %>
+      <%= f.select :rating, [0, 1, 2, 3, 4, 5], include_blank: true %>
+    </div>
+
+    <div>
+      <%= f.label :comment %>
+      <%= f.text_field :comment %>
+    </div>
+
+    <%= f.submit %>
+  <% end %>
 <% end %>

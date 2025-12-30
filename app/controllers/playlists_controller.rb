@@ -1,5 +1,7 @@
 class PlaylistsController < ApplicationController
   def show
-    @songs = Playlist.find(params[:id]).song
+    @playlist = Playlist.find(params[:id])
+    @songs = @playlist.song
+    @playlist_items = @playlist.playlist_items.index_by { |item| item.song_id }
   end
 end
