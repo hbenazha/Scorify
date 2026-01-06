@@ -1,24 +1,5 @@
-# README
+# Mélocrite
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Mélocrite is a small Ruby on Rails prototype that lets you rate and annotate songs.
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+This project mainly serves a learning playground for Ruby On Rails.
