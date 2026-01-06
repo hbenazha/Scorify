@@ -1,0 +1,13 @@
+<h1>Song creation</h1>
+
+<%= form_with model: @song do |form| %>
+  <%= form.label :name, "Name " %>
+  <%= form.text_field :name %>
+
+  <%= form.label :artist, "Artist" %>
+  <%= form.text_field :artist %>
+
+  <%= form.label :url,  "URL (optional)" %>
+  <%= form.text_field :url %>
+  <%= form.submit %>
+<% end %>

@@ -1,0 +1,29 @@
+<h1><%= "#{@song.name} - #{@song.artist}" %></h1>
+
+<div>
+  <% @reviews.each do |review| %>
+    <div>
+    <p><b> <%= review.user.name %> </b></p>
+    <p> Rating : <%= review.rating %> </p>
+    <p> Review : <%= review.comment %> </p>
+    </div>
+  <% end %>
+</div>
+
+<h2> Add a new rating </h2>
+
+<% @new_review = @song.reviews.build() %>
+<%= form_with model: @new_review do |form| %>
+  <%= form.hidden_field :song_id, value: @song.id %>
+
+  <%= form.label :user_id, "User" %>
+  <%= form.collection_select :user_id, @users, :id, :name, prompt: "User" %>
+  
+  <%= form.label :rating, "Rating" %>
+  <%= form.number_field :rating %>
+
+  <%= form.label :comment, "Comment" %>
+  <%= form.text_field :comment %>
+
+  <%= form.submit %>
+<% end %>
