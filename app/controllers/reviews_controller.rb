@@ -5,7 +5,7 @@ class ReviewsController < ApplicationController
     review = Review.new(song: song, user: user, rating: review_params[:rating], comment: review_params[:comment])
     if review.save
       redirect_to song
-    else 
+    else
       raise "An error occured during the saving of the review : #{review}"
     end
   end

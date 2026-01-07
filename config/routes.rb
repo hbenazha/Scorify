@@ -1,10 +1,7 @@
 Rails.application.routes.draw do
-  get "users/create"
-  get "users/new"
-  get "reviews/create"
-  resources :songs, only: [:index, :show, :create, :new]
-  resources :reviews, only: [:create]
-  resources :users, only: [:create, :new]
+  resources :songs, only: [ :index, :show, :create, :new ]
+  resources :reviews, only: [ :create ]
+  resources :users, only: [ :create, :new ]
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
@@ -15,6 +12,6 @@ Rails.application.routes.draw do
   # get "manifest" => "rails/pwa#manifest", as: :pwa_manifest
   # get "service-worker" => "rails/pwa#service_worker", as: :pwa_service_worker
 
-  #Defines the root path route ("/")
+  # Defines the root path route ("/")
   root "songs#index"
 end
